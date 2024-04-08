@@ -1,1 +1,4 @@
 Question 1)
+Il faut créer une classe intermédiaire qui va permettre de transformer 
+la classe cheminee en appareil. 
+Il faut donc créer une classe ChemineeAppareil qui hérite de la classe Cheminee et de la classe Appareil.

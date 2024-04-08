@@ -1,0 +1,57 @@
+@startuml Q2_TelecommandeDiagramme
+class Telecommande{
+    +Telecommande()
+    +ajouterLampe(Lampe l)
+    +ajouterHifi(Hifi hifi)
+    +activerLampes(int i)
+    +activerHifi(int i)
+    +desactiverLampes(int i)
+    +desactiverHifi(int i)
+    +activerTout()
+    +desactiverTout()
+    +toString() : String
+    +getLampe() : Lampe
+    +getHifi() : Hifi
+}
+class Lampe{
+    -nom : String
+    -allume : boolean
+    +Lampe()
+    +abstract allumer()
+    +abstract eteindre()
+    +abstract toString() : String
+    +isAlllume() : boolean
+}
+class Hifi{
+    -son : int
+    +abstract allumer()
+    +abstract eteindre()
+    +abstract toString() : String
+}
+class Cheminee {
+    -intensite : int
+    +Cheminee()
+    +changerIntensite(int i)
+    +toString() : String
+    +getLumiere() : int 
+}
+abstract class ChemineeAppareil{
+    +ChemineeAppareil()
+    +abstract allumer()
+    +abstract eteindre()
+    +abstract toString() : String
+    +getLumiere() : int
+}
+abstract class Appareil{
+    +allumer()
+    +eteindre()
+    +toString() : String
+}
+Telecommande "1" -> "0..*" Appareil : -Appareil
+Appareil <|-- Lampe
+Appareil <|-- Hifi
+Appareil <|-- ChemineeAppareil
+ChemineeAppareil "1" -> "1" Cheminee : -Cheminee
+
+
+@enduml
