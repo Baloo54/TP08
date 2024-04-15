@@ -30,10 +30,11 @@ public class ChemineeAppareil extends Appareil{
         return cheminée.toString();
     }
     /**
-     * méthode getter pour obtenir la luminosité de la cheminée
+     * isAllume
+     * @return boolean 
+     * permet de savoir si la cheminée est allumée
      */
-    public int getLumiere(){
-        return cheminée.getLumiere();
+    public boolean isAllume(){
+        return cheminée.getLumiere() > 0;
     }
-
 }

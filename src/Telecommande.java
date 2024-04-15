@@ -6,90 +6,54 @@ import java.util.ArrayList;
 public class Telecommande {
     /**
      * Attribut 
-     * @param commande : liste de Lampe
-     * @param commandehifi : liste de chaine Hifi
+     * @param Appareil
      */
-    private ArrayList<Lampe> commande;
-    private ArrayList<Hifi> commandehifi;
-    /**
+    private ArrayList<Appareil> commande;
+     /**
      * Constructeur de la classe Telecommande
      */
     public Telecommande(){
-        this.commande = new ArrayList<Lampe>();
-        this.commandehifi = new ArrayList<Hifi>();
-    }
-    /**
-     * Methode permettant d'ajouter une lampe a la telecommande
-     * @param lampe : lampe à ajouter
-     */
-    public void ajouterLampe(Lampe lampe){
-        this.commande.add(lampe);
-    }
+        this.commande = new ArrayList<Appareil>();
 
-    /**
-     * Methode permettant d'ajouter une chaine Hifi a la telecommande
-     * @param hifi : chaine Hifi à ajouter
-     */
-    public void ajouterHifi(Hifi hifi){
-        this.commandehifi.add(hifi);
     }
     /**
-     * Methode permettant d'activer une lampe à l'indice i
-     * @param i : indice de la lampe
+     * Methode permettant d'ajouter un appareil à la telecommande
+     * @param Appareil : Appareil à ajouter
+     */
+    public void ajouterAppareil(Appareil appareil){
+        this.commande.add(appareil);
+    }
+    /**
+     * Methode permettant d'activer un appareil à l'indice i
+     * @param i : indice de l'appareil
      */ 
-    public void activerLampe(int i){
+    public void activerAppareil(int i){
         if (i < this.commande.size()) {
             this.commande.get(i).allumer();
         }
     }
     /**
-     * Methode permettant d'activer une chaine Hifi à l'indice i    
-     * @param i : indice de la chaine Hifi
+     * Methode permettant de désactiver un appareil à l'indice i
+     * @param i : indice de la appareil
      */
-    public void activerHifi(int i){
-        if (i < this.commandehifi.size()) {
-            this.commandehifi.get(i).allumer();
-        }
-    }
-
-    /**
-     * Methode permettant de désactiver une lampe à l'indice i
-     * @param i : indice de la lampe
-     */
-    public void desactiverLampe(int i){
+    public void desactiverAppareil(int i){
         this.commande.get(i).eteindre();
-    }
-
-    /**
-     * Methode permettant de désactiver une chaine Hifi à l'indice i
-     * @param i : indice de la chaine Hifi
-     */
-    public void desactiverHifi(int i){
-        this.commandehifi.get(i).eteindre();
     }
 
     /**
      * Methode permettant d'activer toutes les lampes
      */
     public void activerTout(){
-        for (Lampe lampe : this.commande) {
-            lampe.allumer();
-        }
-        for (Hifi hifi : this.commandehifi) {
-            hifi.allumer();
+        for (Appareil appareil : this.commande) {
+            appareil.allumer();
         }
     }
-
-
     /**
      * Methode permettant de désactiver toutes les lampes
      */
-    public void desactiverTout(){
-        for (Lampe lampe : this.commande) {
-            lampe.eteindre();
-        }
-        for (Hifi hifi : this.commandehifi) {
-            hifi.eteindre();
+    public void desactiverAppareil(){
+        for (Appareil appareil : this.commande) {
+            appareil.eteindre();
         }
     }
     /**
@@ -98,28 +62,23 @@ public class Telecommande {
      */
     public String toString(){
         String str = "";
-        for (Lampe lampe : this.commande) {
-            str += lampe.toString() + "\n";
-        }
-        for (Hifi hifi : this.commandehifi) {
-            str += hifi.toString() + "\n";
+        for (Appareil appareil : this.commande) {
+            str += appareil.toString() + "\n";
         }
         return str;
     }
     /**
-     * méthode getLampe
-     * @param i : indice de la lampe
+     * méthode getAppareil
+     * @param i : indice de l'appareil
      */
-    public Lampe getLampe(int i){
+    public Appareil getAppareil(int i){
         return this.commande.get(i);
     }
-
     /**
-     * méthode getHifi
-     * @param i : indice de la chaine Hifi
+     * méthode getnombre
+     * @return int : nombre d'appareil dans la telecommande
      */
-    public Hifi getHifi(int i){
-        return this.commandehifi.get(i);
+    public int getNombre(){
+        return this.commande.size();
     }
-
 }

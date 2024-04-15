@@ -1,7 +1,7 @@
 /**
  * classe qui represente une chaine hifi
  */
-class Hifi extends commande{
+class Hifi extends Appareil{
 	/**
 	 * l'intensite du son de la chaine on suppose que la chaine est eteinte si
 	 * le son vaut 0
@@ -31,5 +31,13 @@ class Hifi extends commande{
 		String r = "";
 		r += "Hifi:" + son;
 		return (r);
+	}
+	/**
+	 * permet de savoir si la chaine est allumee
+	 * 
+	 * @return true si le son est superieur a 0
+	 */
+	public boolean isAllume() {
+		return (son > 0);
 	}
 }

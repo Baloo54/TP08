@@ -7,96 +7,139 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class TelecommandeTest {
     /**
-	 * test de la méthode ajouterLampe
+	 * test de la méthode ajouterAppareil
 	 */
 	@Test
-    public void testAjouterLampe() {
+    public void testAjouterAppareil() {
         // preparation des donnees
         Telecommande t = new Telecommande();
-        Lampe l = new Lampe("lampe1");
+        Appareil l = new Lampe();
 
         // methode testee
-        t.ajouterLampe(l);
+        t.ajouterAppareil(l);
 
         // verification
-        Lampe res = t.getLampe(0);
-        assertEquals(l, res, " La lampe à l'indice 0 devrait être la lampe ajoutée");
+        Appareil res = t.getAppareil(0);
+        assertEquals(l, res, " La Appareil à l'indice 0 devrait être la Appareil ajoutée");
     }
 
 
     /**
-     * test de la méthode ajouterLampe dans une télécommande avec une lampe déjà ajoutée
+     * test de la méthode ajouterAppareil dans une télécommande avec une Appareil déjà ajoutée
      */
     @Test
-    public void testAjouterLampe2() {
+    public void testAjouterAppareil2() {
         // preparation des donnees
         Telecommande t = new Telecommande();
-        Lampe l = new Lampe("lampe1");
-        Lampe l2 = new Lampe("lampe2");
-        t.ajouterLampe(l);
+        Appareil l = new Lampe();
+        Appareil l2 = new Lampe();
+        t.ajouterAppareil(l);
 
         // methode testee
-        t.ajouterLampe(l2);
+        t.ajouterAppareil(l2);
 
         // verification
-        Lampe res = t.getLampe(1);
-        assertEquals(l2, res, " La lampe à l'indice 1 devrait être la lampe ajoutée");
+        Appareil res = t.getAppareil(1);
+        assertEquals(l2, res, " La Appareil à l'indice 1 devrait être la Appareil ajoutée");
     }
 
 
     /**
-     * test de la méthode allumerLampe d'une lampe existante en position 0
+     * test de la méthode allumerAppareil d'une Appareil existante en position 0
      */
     @Test
-    public void testAllumerLampe() {
+    public void testAllumerAppareil() {
         // preparation des donnees
         Telecommande t = new Telecommande();
-        Lampe l = new Lampe("lampe1");
-        t.ajouterLampe(l);
+        Appareil l = new Lampe();
+        t.ajouterAppareil(l);
 
         // methode testee
-        t.activerLampe(0);
+        t.activerAppareil(0);
 
         // verification
-        boolean res = t.getLampe(0).isAllume();
-        assertEquals(true, res, " La lampe devrait être allumée");
+        boolean res = t.getAppareil(0).isAllume();
+        assertEquals(true, res, " La Appareil devrait être allumée");
     }
 
     /**
-     * test de la méthode allumerLampe d'une lampe existante en position 1 
+     * test de la méthode allumerAppareil d'une Appareil existante en position 1 
      */
     @Test
-    public void testAllumerLampe2() {
+    public void testAllumerAppareil2() {
         // preparation des donnees
         Telecommande t = new Telecommande();
-        Lampe l = new Lampe("lampe1");
-        Lampe l2 = new Lampe("lampe2");
-        t.ajouterLampe(l);
-        t.ajouterLampe(l2);
+        Appareil l = new Lampe();
+        Appareil l2 = new Lampe();
+        t.ajouterAppareil(l);
+        t.ajouterAppareil(l2);
 
         // methode testee
-        t.activerLampe(1);
+        t.activerAppareil(1);
 
         // verification
-        boolean res = t.getLampe(1).isAllume();
-        assertEquals(true, res, " La lampe devrait être allumée");
+        boolean res = t.getAppareil(1).isAllume();
+        assertEquals(true, res, " La Appareil devrait être allumée");
     }
 
     /**
-     * test de la méthode allumerLampe d'une lampe inexistante
+     * test de la méthode allumerAppareil d'une Appareil inexistante
      */
     @Test
-    public void testAllumerLampeInexistante() {
+    public void testAllumerAppareilInexistante() {
         // preparation des donnees
         Telecommande t = new Telecommande();
-        Lampe l = new Lampe("lampe1");
-        t.ajouterLampe(l);
+        Appareil l = new Hifi();
+        t.ajouterAppareil(l);
 
         // methode testee
-        t.activerLampe(1);
+        t.activerAppareil(1);
 
         // verification
-        boolean res = t.getLampe(0).isAllume();
-        assertEquals(false, res, " La lampe ne devrait pas être allumée");
+        boolean res = t.getAppareil(0).isAllume();
+        assertEquals(false, res, " La Appareil ne devrait pas être allumée");
     }
+    /**
+     * test  chemineeAppareil
+     */
+    @Test
+    public void testChemineeAppareil() {
+        // preparation des donnees
+        Telecommande t = new Telecommande();
+        ChemineeAppareil c = new ChemineeAppareil();
+        t.ajouterAppareil(c);
+        t.activerTout();
+        boolean res = t.getAppareil(0).isAllume();
+        assertEquals(true, res, " La cheminee devrait être allumée");
+    }       
+    /**
+     * test  chemineeAppareil plusieurs cheminee 
+     */
+    @Test
+    public void testChemineeAppareil2() {
+        // preparation des donnees
+        Telecommande t = new Telecommande();
+        ChemineeAppareil c = new ChemineeAppareil();
+        ChemineeAppareil c2 = new ChemineeAppareil();
+        t.ajouterAppareil(c);
+        t.ajouterAppareil(c2);
+        t.activerTout();
+        boolean res = t.getAppareil(0).isAllume();
+        assertEquals(true, res, " La cheminee devrait être allumée");
+    }
+    /**
+     * test  chemineeAppareil eteinte
+     */
+    @Test
+    public void testChemineeAppareilEteinte() {
+        // preparation des donnees
+        Telecommande t = new Telecommande();
+        ChemineeAppareil c = new ChemineeAppareil();
+        t.ajouterAppareil(c);
+        t.activerTout();
+        t.desactiverAppareil();
+        boolean res = t.getAppareil(0).isAllume();
+        assertEquals(false, res, " La cheminee devrait être éteinte");
+    }
+
 }

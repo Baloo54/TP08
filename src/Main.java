@@ -6,7 +6,7 @@ public class Main {
 		Telecommande t=new Telecommande();
 		
 		
-		Lampe l1=new Lampe("Lampe1");
+		Lampe l1=new Lampe();
 		t.ajouterAppareil(l1);
 		
 		/****** A COMPLETER ******/

@@ -13,7 +13,7 @@ public class LampeTest {
 	@Test
 	public void testLampe() {
 		// methode testee
-		Lampe l = new Lampe("lampe1");
+		Lampe l = new Lampe();
 
 		// verification
 		boolean res = l.isAllume();
@@ -27,7 +27,7 @@ public class LampeTest {
 	@Test
 	public void testAllumer() {
 		// preparation des donnees
-		Lampe l = new Lampe("lampe1");
+		Lampe l = new Lampe();
 
 		//methode testee
 		l.allumer();
@@ -43,7 +43,7 @@ public class LampeTest {
 	 */
 	public void testAllumer_allumee() {
 		// preparation des donnees
-		Lampe l = new Lampe("lampe1");
+		Lampe l = new Lampe();
 		l.allumer();
 
 		//methode testee
@@ -60,7 +60,7 @@ public class LampeTest {
 	 */
 	public void testeteindre_allumee() {
 		// preparation des donnees
-		Lampe l = new Lampe("lampe1");
+		Lampe l = new Lampe();
 		l.allumer();
 
 		//methode testee
@@ -77,13 +77,13 @@ public class LampeTest {
 	 */
 	public void testToString_eteinte() {
 		// preparation des donnees
-		Lampe l = new Lampe("lampe1");
+		Lampe l = new Lampe();
 
 		//methode testee
 		String r=""+l;
 
 		//verification
-		assertEquals("lampe1: Off",r,"affichage devrait etre off");
+		assertEquals("Lampe : Off",r,"affichage devrait etre off");
 	}
 
 	@Test
@@ -92,19 +92,14 @@ public class LampeTest {
 	 */
 	public void testToString_allumee() {
 		// preparation des donnees
-		Lampe l = new Lampe("lampe1");
+		Lampe l = new Lampe();
 		l.allumer();
 
 		//methode testee
 		String r=""+l;
 
 		//verification
-		assertEquals("lampe1: On",r,"affichage devrait etr off");
+		assertEquals("Lampe : On",r,"affichage devrait etr off");
 
 	}
-	//méthode lancement des tests dans le terminal
-	public static void main(String[] args) {
-		org.junit.runner.JUnitCore.main("LampeTest");
-	}
-	
 }

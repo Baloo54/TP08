@@ -4,11 +4,7 @@
  * elle possede un attribut allume qui rend compte de son etat. cet attribut est
  * prive et manipulable par les methodes allumer et eteindre
  */
-public class Lampe extends commande{
-	/**
-	 * nom de la lampe
-	 */
-	private String nom;
+public class Lampe extends Appareil{
 	/**
 	 * etat de la lampe
 	 */
@@ -19,9 +15,8 @@ public class Lampe extends commande{
 	 * @param paramNom
 	 *            nom de la lampe
 	 */
-	public Lampe(String paramNom) {
+	public Lampe() {
 		this.allume = false;
-		this.nom = paramNom;
 	}
 	/**
 	 * permet de changer l'etat interne d'une lampe en l'allumant
@@ -45,7 +40,7 @@ public class Lampe extends commande{
 		} else {
 			r = "Off";
 		}
-		return (nom + ": " + r);
+		return ("Lampe : " + r);
 	}
 	/**
 	 * permet de savoir si la lampe est allumee

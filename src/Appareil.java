@@ -14,6 +14,11 @@ public abstract class Appareil {
      */
     public abstract void eteindre();
     /**
+     * méthode isAllume
+     * permet de savoir si un appareil est allumé
+     */
+    public abstract boolean isAllume();
+    /**
      * méthode toString
      * permet d'afficher l'état de l'appareil
      */
