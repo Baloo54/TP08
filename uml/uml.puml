@@ -1,32 +1,29 @@
 @startuml Q2_TelecommandeDiagramme
 class Telecommande{
     +Telecommande()
-    +ajouterLampe(Lampe l)
-    +ajouterHifi(Hifi hifi)
-    +activerLampes(int i)
-    +activerHifi(int i)
-    +desactiverLampes(int i)
-    +desactiverHifi(int i)
+    +ajouterAppareil(Appareil a)
+    +activerAppareil(int i)
+    +desactiverAppareil(int i)
     +activerTout()
     +desactiverTout()
     +toString() : String
-    +getLampe() : Lampe
-    +getHifi() : Hifi
+    +getAppareil(int i) : Appareil
+    +getNombre() : int
 }
 class Lampe{
-    -nom : String
     -allume : boolean
     +Lampe()
-    +abstract allumer()
-    +abstract eteindre()
-    +abstract toString() : String
+    +allumer()
+    +eteindre()
+    +toString() : String
     +isAlllume() : boolean
 }
 class Hifi{
     -son : int
-    +abstract allumer()
-    +abstract eteindre()
-    +abstract toString() : String
+    +allumer()
+    +eteindre()
+    +toString() : String
+    +isAllume() : boolean
 }
 class Cheminee {
     -intensite : int
@@ -37,15 +34,16 @@ class Cheminee {
 }
 abstract class ChemineeAppareil{
     +ChemineeAppareil()
-    +abstract allumer()
-    +abstract eteindre()
-    +abstract toString() : String
-    +getLumiere() : int
-}
-abstract class Appareil{
     +allumer()
     +eteindre()
     +toString() : String
+    +isAllume() : boolean
+}
+abstract class Appareil{
+    +abstract allumer()
+    +abstract eteindre()
+    +abstract toString() : String
+    +abstract isAllume() : boolean
 }
 Telecommande "1" -> "0..*" Appareil : -Appareil
 Appareil <|-- Lampe
